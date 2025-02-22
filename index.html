@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Pet - Pet Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Royal Pet</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#promocoes">Promoções</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#login" id="btn-login">Login</a></li>
+                <li><a href="#registro" id="btn-registro">Registrar-se</a></li>
+                <li><a href="#carrinho" id="btn-carrinho">Carrinho (<span id="contador">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h2>Bem-vindo ao Royal Pet!</h2>
+        <p>Seu pet shop de confiança. Aqui você encontra tudo para o seu melhor amigo!</p>
+        <a href="#produtos" class="btn">Ver Produtos</a>
+    </section>
+
+    <section id="produtos">
+        <h2>Nossos Produtos</h2>
+        <div class="filtro">
+            <label for="tipo-pet">Filtrar por tipo de pet:</label>
+            <select id="tipo-pet" onchange="filtrarProdutos()">
+                <option value="todos">Todos</option>
+                <option value="cachorros">Cachorros</option>
+                <option value="gatos">Gatos</option>
+                <option value="passaros">Pássaros</option>
+                <option value="peixes">Peixes</option>
+                <option value="outros">Outros Pets</option>
+            </select>
+        </div>
+        <div class="produtos-container" id="produtos-container">
+            <!-- Produtos serão adicionados aqui via JavaScript -->
+        </div>
+    </section>
+
+    <section id="promocoes">
+        <h2>Promoções</h2>
+        <div class="promocao">
+            <h3>Desconto de 20% em Rações!</h3>
+            <p>Na compra de 2 ou mais pacotes de ração.</p>
+        </div>
+        <div class="promocao">
+            <h3>Frete Grátis</h3>
+            <p>Para compras acima de R$ 150,00.</p>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Entre em contato conosco pelo e-mail: contato@royalpet.com.br</p>
+    </section>
+
+    <section id="login" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal('login')">&times;</span>
+            <h2>Login</h2>
+            <form onsubmit="return fazerLogin(event)">
+                <label for="email-login">E-mail:</label>
+                <input type="email" id="email-login" required>
+                <label for="senha-login">Senha:</label>
+                <input type="password" id="senha-login" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="registro" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal('registro')">&times;</span>
+            <h2>Registrar-se</h2>
+            <form onsubmit="return fazerRegistro(event)">
+                <label for="nome-registro"> Nome:</label>
+                <input type="text" id="nome-registro" required>
+                <label for="email-registro">E-mail:</label>
+                <input type="email" id="email-registro" required>
+                <label for="senha-registro">Senha:</ ```html
+                <input type="password" id="senha-registro" required>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="carrinho" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal('carrinho')">&times;</span>
+            <h2>Carrinho de Compras</h2>
+            <div id="itens-carrinho">
+                <!-- Itens do carrinho serão exibidos aqui -->
+            </div>
+            <button onclick="exibirCarrinho()">Ver Itens</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Royal Pet. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
